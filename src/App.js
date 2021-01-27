@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 // 引入路由
@@ -10,19 +9,19 @@ const DefaultLayout = loadable(() => import(/* webpackChunkName: 'default' */ '.
 
 // 基础页面 404 500页面 登录页面
 const View404 = loadable(() => import(/* webpackChunkName: '404' */ './views/Others/404'))
-// const View500 = loadable(() => import)
+const View500 = loadable(() => import(/* webpackChunkName: '404' */ './views/Others/500'))
+const Login = loadable(() => import(/* webpackChunkName: '404' */ './views/Login'))
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p> */}
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+      <Switch>
+          <Route path='/' exact render={() => <Redirect to='/index' />} />
+          <Route path='/500' component={View500} />
+          <Route path='/login' component={Login} />
+          <Route path='/404' component={View404} />
+          <Route component={DefaultLayout} />
+      </Switch>
+  </Router>
+)
 
-export default App;
+export default App
