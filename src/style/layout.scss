@@ -41,3 +41,9 @@
         text-align: center;
     }
 }
+
+// 为了展开和收起协调、
+.ant-layout {
+    height: 100vh;
+    transition: all 0.2s;
+}
