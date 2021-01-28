@@ -1,26 +1,30 @@
 import './App.css';
-import React from 'react';
 // 引入路由
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import loadable from './utils/loadable'
+import React, {Suspense, lazy } from 'react';
+
 
 // 公共模块 主要是头部底部侧边栏，和内容区的封装
-const DefaultLayout = loadable(() => import(/* webpackChunkName: 'default' */ './containers'))
+const DefaultLayout = lazy(() => import('./containers'))
+
 
 // 基础页面 404 500页面 登录页面
-const View404 = loadable(() => import(/* webpackChunkName: '404' */ './views/Others/404'))
-const View500 = loadable(() => import(/* webpackChunkName: '404' */ './views/Others/500'))
-const Login = loadable(() => import(/* webpackChunkName: '404' */ './views/Login'))
+const View404 = lazy(() => import('./views/Others/404'))
+const View500 = lazy(() => import('./views/Others/500'))
+const Login = lazy(() => import('./views/Login'))
 
 const App = () => (
   <Router>
-      <Switch>
-          <Route path='/' exact render={() => <Redirect to='/index' />} />
-          <Route path='/500' component={View500} />
-          <Route path='/login' component={Login} />
-          <Route path='/404' component={View404} />
-          <Route component={DefaultLayout} />
-      </Switch>
+    {/* Suspense 动态懒加载组件 */}
+     <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+            <Route path='/' exact render={() => <Redirect to='/index' />} />
+            <Route path='/500' component={View500} />
+            <Route path='/login' component={Login} />
+            <Route path='/404' component={View404} />
+            <Route component={DefaultLayout} />
+        </Switch>
+      </Suspense>
   </Router>
 )
 
