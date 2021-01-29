@@ -7,11 +7,14 @@ import screenfull from 'screenfull'
 
 
 import FirstLine from './line.jsx'
+import Bar from './bar.jsx'
+
 class Index extends Component {
     state = {  }
     fullToggle = () => {
         if (screenfull.isEnabled) {
-            screenfull.request(document.getElementById('line'))
+            screenfull.request(document.getElementById('bar'))
+            // 根据id全屏放大
         }
     }
     render() { 
@@ -60,10 +63,12 @@ class Index extends Component {
                             <FullscreenOutlined onClick={this.fullToggle}/>
                         </div>
                         <Divider/>
-                        <FirstLine/>
+                        <Bar/>
                     </div>
                     </Col>
                 </Row>
+                {/* 折线图 */}
+                <FirstLine/>
             </Layout>
          );
     }
