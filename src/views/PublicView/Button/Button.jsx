@@ -4,7 +4,7 @@ class ButtonView extends Component {
     render() { 
         return ( 
             <div>
-                这里是苏建
+                这里是新的组件89898
             </div> 
         );
     }

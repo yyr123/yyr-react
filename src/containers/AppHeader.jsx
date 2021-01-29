@@ -1,7 +1,7 @@
 // 公共的头部
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Menu, Dropdown, Layout, Row, Col, Button, Avatar, Badge } from 'antd'
+import { Menu, Dropdown, Layout, Row, Col, Button} from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined} from '@ant-design/icons'
 
 const { Header } = Layout

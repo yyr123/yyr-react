@@ -46,8 +46,10 @@ class DefaultLayout extends Component {
     //  退出登录、
      loginOut = ()=> {
          localStorage.clear()
-         this.props.history.push('/login')
-        console.log('点击了退出')
+         message.success('退出成功')
+         setTimeout(() => {
+            this.props.history.push('/login')
+         }, 300)
      }
 
      menuClick = ()=> {

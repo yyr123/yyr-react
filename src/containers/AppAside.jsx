@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes  from  'prop-types'
 import { Layout }  from 'antd'
 // 封装的导航组件
-import { StarOutlined } from '@ant-design/icons' // 按需引入icon
+import { GithubOutlined } from '@ant-design/icons' // 按需引入icon
 import CustomMenu from '@/components/CustomMenu'
 
 
@@ -14,7 +14,7 @@ const AppAside = props => {
         <Sider className='aside' collapsed={menuToggle}>
             <div className='logo'>
                 <a rel='noopener noreferrer' href='https://github.com/ltadpoles' target='_blank'>
-                    <StarOutlined></StarOutlined>
+                    <GithubOutlined />
                     {/* <Icon type='github' style={{ fontSize: '3.8rem', color: '#fff' }} /> */}
                 </a>
             </div>
