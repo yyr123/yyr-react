@@ -5,9 +5,9 @@ import { FullscreenOutlined } from '@ant-design/icons'
 // 引入全屏展示组件
 import screenfull from 'screenfull'
 
-
 import FirstLine from './line.jsx'
 import Bar from './bar.jsx'
+import Pie from './pie.jsx'
 
 class Index extends Component {
     state = {  }
@@ -68,7 +68,14 @@ class Index extends Component {
                     </Col>
                 </Row>
                 {/* 折线图 */}
-                <FirstLine/>
+                <Row style={{marginTop: '10px'}}>
+                    <Col span={12} style={{paddingRight: '20px'}}>
+                        <FirstLine/>
+                    </Col>
+                    <Col span={12}>
+                        <Pie/>
+                    </Col>
+                </Row>
             </Layout>
          );
     }

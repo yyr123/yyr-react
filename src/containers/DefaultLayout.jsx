@@ -51,11 +51,6 @@ class DefaultLayout extends Component {
             this.props.history.push('/login')
          }, 300)
      }
-
-     menuClick = ()=> {
-
-     }
-
     //  页面初始化
      componentDidMount() {
          this.isLogin() // 判断是否登录

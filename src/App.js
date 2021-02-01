@@ -22,6 +22,8 @@ const App = () => (
             <Route path='/500' component={View500} />
             <Route path='/login' component={Login} />
             <Route path='/404' component={View404} />
+            
+            {/* 默认是加载框架图，判断是否是登录，再跳转页面 */}
             <Route component={DefaultLayout} />
         </Switch>
       </Suspense>

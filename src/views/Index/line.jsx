@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
+
 
 class Line extends Component {
     // 组件加载完成后
@@ -10,15 +12,48 @@ class Line extends Component {
         var myChart = echarts.init(document.getElementById('line'));
         // 绘制图表
         myChart.setOption({
-            tooltip: {},
-            xAxis: {
-                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            title: {
+                text: '某楼盘销售情况',
+                subtext: '纯属虚构'
             },
-            yAxis: {},
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['意向','预购','成交']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    magicType: {show: true, type: ['stack', 'tiled']},
+                    saveAsImage: {show: true}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['周一','周二','周三','周四','周五','周六','周日']
+            },
+            yAxis: {
+                type: 'value'
+            },
             series: [{
-                name: '销量',
+                name: '成交',
                 type: 'line',
-                data: [5, 20, 36, 10, 10, 20]
+                smooth: true,
+                data: [10, 12, 21, 54, 260, 830, 710]
+            },
+            {
+                name: '预购',
+                type: 'line',
+                smooth: true,
+                data: [30, 182, 434, 791, 390, 30, 10]
+            },
+            {
+                name: '意向',
+                type: 'line',
+                smooth: true,
+                data: [1320, 1132, 601, 234, 120, 90, 20]
             }]
         });
         window.addEventListener('resize', function() {
@@ -28,7 +63,7 @@ class Line extends Component {
     render() { 
         
         return ( 
-            <div id='line' style={{height: '500px', backgroundColor: '#fff'}}></div>
+            <div id='line' style={{height: '300px', backgroundColor: '#fff'}}></div>
          );
     }
 }
