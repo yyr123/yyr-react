@@ -43,7 +43,7 @@ class CustomMenu extends Component {
                 key={key}
                 title={
                     <span>
-                        {title}66
+                        {title}
                     </span>
                 }
                 >
@@ -66,7 +66,7 @@ class CustomMenu extends Component {
             <Menu.Item key={key}>
                 {/* link进行路由跳转 */}
                 <Link to={key}>
-                    <span>{title}12</span>  
+                    <span>{title}</span>  
                 </Link>
             </Menu.Item>
         )
