@@ -13,14 +13,13 @@ const http = axios.create({
 // 设置post请求头
 http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
-// 添加请求拦截器 就是在家口加入token校验
+// 添加请求拦截器 就是在接口加入token校验
 http.interceptors.request.user(
     config => {
         // 将token添加到请求头
         // 一般可以指定token的形式
-        // config.headers["Authorization"] = 'bearer ' + window.localStorage.getItem("Authorization"); // 请求头带上token
-
-        token && (config.headers.Authorization = token)
+        config.headers["Authorization"] = 'bearer ' + window.localStorage.getItem("Authorization"); // 请求头带上token
+        // token && (config.headers.Authorization = token)
         return config
     },
     error => {
