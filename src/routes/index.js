@@ -9,8 +9,8 @@ import TableView from '@/views/show/table'
 
 const routes = [
    { path: '/index', exact: true, name: 'Index', component: Index, auth: [1] },
-   { path: '/public/button', exact: false, name: '按钮', component: ButtonView, auth: [1] },
-   { path: '/show/table', exact: false, name: '表格', component: TableView, auth: [1] },
+   { path: '/public/button', exact: false, name: '表格', component: ButtonView, auth: [1] },
+   { path: '/show/table', exact: false, name: '按钮', component: TableView, auth: [1] },
 ]
 
 export default routes

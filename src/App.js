@@ -10,7 +10,7 @@ const DefaultLayout = lazy(() => import('./containers'))
 
 // 基础页面 404 500页面 登录页面
 const View404 = lazy(() => import('./views/Others/404'))
-const View500 = lazy(() => import('./views/Others/500'))
+const ViewFailErr = lazy(() => import('./views/Others/FailErr'))
 const Login = lazy(() => import('./views/Login'))
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
             <Route path='/' exact render={() => <Redirect to='/index' />} />
-            <Route path='/500' component={View500} />
+            <Route path='/500' component={ViewFailErr} />
             <Route path='/login' component={Login} />
             <Route path='/404' component={View404} />
             

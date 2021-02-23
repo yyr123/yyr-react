@@ -4,7 +4,7 @@ import axios from 'axios'
 import { message } from 'antd'
 
 // 获取缓存中的token
-const token = localStorage.getItem('token')
+// const token = localStorage.getItem('token')
 
 const http = axios.create({
     timeout: 5000, // 超时时间
