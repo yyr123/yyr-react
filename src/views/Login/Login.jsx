@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Input, Form, Button, Divider, message, notification}  from 'antd'
-import { withRouter } from 'react-router-dom'
 import '@/style/view-style/login.scss'
-
-
 class Login extends Component {
     state = { 
         loading: false, // 默认的加载效果
@@ -28,52 +25,46 @@ class Login extends Component {
         notification.destroy() // 提示语销毁
         this.timer && clearTimeout(this.timer)
     }
-    handleSubmit = (e) => {
-        console.log('开始登录8989')
-        e.preventDefault()
-        this.props.form.validateFields((err, values) => {
-            console.log(values, '开始提交的数据')
-            if (!err) {
-                switch(values.username) {
-                    case 'admin':
-                        values.auth = 0
-                        break
-                    default:
-                        values.auth = 1
-                }
-                localStorage.setItem('user', JSON.stringify(values))
-                this.enterLoading() // 加载效果开启
-                this.timer = setTimeout(() =>{
-                    message.success('登录成功')
-                    this.props.history.push('/')
-                })
-            }
+    handleSubmit = (values) => {
+        console.log(values, '提交的数据')
+        switch(values.username) {
+            case 'admin':
+                values.auth = 0
+                break
+            default:
+                values.auth = 1
+        }
+        localStorage.setItem('user', JSON.stringify(values))
+        this.enterLoading() // 加载效果开启
+        this.timer = setTimeout(() =>{
+            message.success('登录成功')
+            this.props.history.push('/')
         })
-    }
+}
     render() { 
-        const { getFieldDecorator } = this.props.form
         return (  
             <Layout className='login animated fadeIn'>
                 <div className='model'>
                     <div className='login-form'>
                         <h3>REACT后台管理系统</h3>
                         <Divider></Divider>
-                        <Form onSubmit={this.handleSubmit}>
-                            <Form.Item>
-                                {getFieldDecorator('username',{
-                                    rules: [{ required: true, message: '请输入用户名!' }]
-                                })(
-                                    <Input placeholder='用户名'></Input>
-                                )}
+                        <Form onFinish={this.handleSubmit}>
+                        <Form.Item
+                                label="用户名"
+                                labelAlign="left"
+                                name="username"
+                                rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
                             </Form.Item>
-                            <Form.Item>
-                                {getFieldDecorator('password',{
-                                    rules: [{ required: true, message: '请输入密码!' }]
-                                })(
-                                    <Input  type='password' placeholder='密码'></Input>
-                                )}
+                            <Form.Item
+                                label="密码"
+                                labelAlign="left"
+                                name="password"
+                                rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input type="number" />
                             </Form.Item>
-
                             <Form.Item>
                                 <Button
                                  type='primary'
@@ -91,5 +82,5 @@ class Login extends Component {
     }
 }
  
-export default withRouter(Form.create()(Login))
+export default Login
 
