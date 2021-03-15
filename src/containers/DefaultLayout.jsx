@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Layout, BackTop, message } from 'antd'
+import store from '../store'
 import { menuToggleAction } from '@/store/actionCreators'
 import routes from '@/routes' // 引入路由文件
  
@@ -53,7 +54,8 @@ class DefaultLayout extends Component {
      }
     //  页面初始化
      componentDidMount() {
-         this.isLogin() // 判断是否登录
+        console.log(store.getState(), 'react redux 中的数据')
+        this.isLogin() // 判断是否登录
      }
     render() { 
         // this.props 接受子组件传过来的值

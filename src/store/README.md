@@ -39,3 +39,13 @@ const demoAction = {
 }
 
 
+reducer 
+
+action 只是描述有事情发生了这一事实，并没有指明应用如何更新 state, 这正是reducer要做的事情，也就是邮递员（action) 
+只负责通知。 具体的组件如何去做就需要是 reducer，
+
+专业解释： store收到action 通知以后，必须给出一个新的state，这样view才会发生变化，这种state的计算过程就叫做reducer
+
+
+
+redux-thunk 是一个中间件它可以使我们处理异步事件

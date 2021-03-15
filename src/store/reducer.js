@@ -23,7 +23,6 @@ const handleAddNum = (state = defaultStore, action) => {
     switch (action.type) {
         case ADDNUM: 
             return {...state, num: state.num + action.count}
-
         // 默认的必须要写上，要不然报错
         default: 
            return state
