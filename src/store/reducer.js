@@ -24,6 +24,8 @@ const handleAddNum = (state = defaultStore, action) => {
         case ADDNUM: 
             return {...state, num: state.num + action.count}
         // 默认的必须要写上，要不然报错
+
+        // 在 default 情况下返回旧的 state。遇到未知的 action 时，一定要返回旧的 state。
         default: 
            return state
     }

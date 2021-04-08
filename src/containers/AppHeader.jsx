@@ -1,8 +1,8 @@
 // 公共的头部
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Menu, Dropdown, Layout, Row, Col, Button} from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined} from '@ant-design/icons'
+import { Menu, Dropdown, Layout, Row, Col, Button, Avatar} from 'antd'
+import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined} from '@ant-design/icons'
 
 const { Header } = Layout
 
@@ -14,6 +14,7 @@ const AppHeader = props => {
             <Menu.ItemGroup title='用户设置'>
                 <Menu.Divider />
                 <Menu.Item>
+                    <Avatar size={64} icon={<UserOutlined />} />
                     个人设置
                 </Menu.Item>
                 <Menu.Item>

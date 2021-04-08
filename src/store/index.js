@@ -19,7 +19,5 @@ const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store
 
-
-// 导出 store的话，可以在全局进行调用
-
+// 导出store, 全局都可以使用
 

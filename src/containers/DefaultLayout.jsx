@@ -114,7 +114,7 @@ const stateToProp = state => ({
 
 const dispatchToProp = dispatch => ({
     menuClick() {
-        dispatch(menuToggleAction())
+        dispatch(menuToggleAction)
     }
 })
  

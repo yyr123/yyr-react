@@ -107,7 +107,7 @@ class Bar extends Component {
     }
     render() { 
         return ( 
-            <div id="bar" style={{width: '1200px', height: '300px', backgroundColor: '#fff'}}></div>
+            <div id="bar" style={{width: '1600px', height: '300px', backgroundColor: '#fff'}}></div>
          );
     }
 }
